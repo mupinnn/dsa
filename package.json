@@ -1,0 +1,17 @@
+{
+  "name": "dsa",
+  "version": "n/a",
+  "description": "Repo for learning data structures and algorithms",
+  "main": "n/a",
+  "repository": "https://github.com/mupinnn/dsa",
+  "author": "Ahmad Muwaffaq <itsmupin@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
