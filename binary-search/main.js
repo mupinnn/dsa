@@ -15,7 +15,23 @@
  *                 and return -1 if not found.
  */
 function numberSearch(arr, target) {
-  return "not implemented";
+  let min = 0;
+  let max = arr.length - 1;
+  let mid;
+
+  while (min <= max) {
+    mid = Math.floor((min + max) / 2);
+
+    if (arr[mid] === target) {
+      return mid;
+    } else if (arr[mid] < target) {
+      min = mid + 1;
+    } else {
+      max = mid - 1;
+    }
+  }
+
+  return -1;
 }
 
 module.exports = {
