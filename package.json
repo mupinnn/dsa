@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch --onlyChanged"
   },
   "devDependencies": {
     "jest": "^27.3.1"
