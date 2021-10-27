@@ -11,7 +11,7 @@
  * @returns {number} the sum of a and b.
  */
 function solveMeFirst(a, b) {
-  return "not implemented";
+  return a + b;
 }
 
 module.exports = solveMeFirst;
