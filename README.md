@@ -1,6 +1,6 @@
 # Data Structures and Algorithms Drill
 
-Creating this repo as a playground for me to comprehend more the fundamentals and unit testing with JavaScript.
+Creating this repo as a playground for me to comprehend more the computer science fundamentals and unit testing; and also to understand more about the programming language which I often use or that I'm currently learning.
 
 ## Resources
 - [freeCodeCamp](https://freecodecamp.org/)
