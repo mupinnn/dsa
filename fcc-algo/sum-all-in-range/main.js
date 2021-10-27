@@ -18,7 +18,17 @@
  *                   arr[0] to ar[1] (both inclusive)
  */
 function sumAll(arr) {
-  return "10";
+  let result = 0;
+  // sort the array to easily iterate it.
+  let sorted = arr.sort((a, b) => a - b);
+  let min = sorted[0];
+  let max = sorted[1];
+
+  for (min; min <= max; min++) {
+    result += min;
+  }
+
+  return result;
 }
 
 module.exports = sumAll;
