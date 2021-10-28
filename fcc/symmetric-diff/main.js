@@ -21,19 +21,30 @@ function symmetricDiff(arr1, arr2) {
   // This is the first and the best solution so far
   // that I can think of. Still finding another best
   // solution that more simple and efficient.
-  for (let i = 0; i < arr1.length; i++) {
-    if (!arr2.includes(arr1[i])) {
-      diff.push(arr1[i]);
-    }
-  }
+  // for (let i = 0; i < arr1.length; i++) {
+  //   if (!arr2.includes(arr1[i])) {
+  //     diff.push(arr1[i]);
+  //   }
+  // }
 
-  for (let j = 0; j < arr2.length; j++) {
-    if (!arr1.includes(arr2[j])) {
-      diff.push(arr2[j]);
-    }
-  }
+  // for (let j = 0; j < arr2.length; j++) {
+  //   if (!arr1.includes(arr2[j])) {
+  //     diff.push(arr2[j]);
+  //   }
+  // }
 
-  return diff;
+  // Solution 2
+  // Merge both array and filter it by checking
+  // if the original first and second array not
+  // contain the item. Using .filter() will
+  // automatically return an filtered array.
+  return arr1.concat(arr2).filter((item) => {
+    // Both of these will work
+    // return arr1.indexOf(item) === -1 || arr2.indexOf(item) === -1;
+    return !arr1.includes(item) || !arr2.includes(item);
+  });
+
+  // return diff;
 }
 
 module.exports = symmetricDiff;
