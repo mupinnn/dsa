@@ -8,7 +8,10 @@
  * @returns {string} spinal-cased string
  */
 function spinalCase(str) {
-  return "not implemented";
+  return str
+    .split(/(?=[A-Z])|_|\s/)
+    .join("-")
+    .toLowerCase();
 }
 
 module.exports = spinalCase;
