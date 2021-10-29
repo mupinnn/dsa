@@ -22,7 +22,14 @@
  * @returns {Object[]}
  */
 function whatIsInAName(collection, source) {
-  return "not implemented";
+  const sourceKeys = Object.keys(source);
+
+  // Declarative way
+  return collection.filter((c) => {
+    return sourceKeys.every((s) => {
+      return c.hasOwnProperty(s) && c[s] === source[s];
+    });
+  });
 }
 
 module.exports = whatIsInAName;
