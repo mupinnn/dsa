@@ -15,7 +15,16 @@
  *                   from `before` to `after`.
  */
 function replace(str, before, after) {
-  return "not implemented";
+  let newAfter = after;
+
+  // Check `before` first letter case
+  if (/^[A-Z]/.test(before[0])) {
+    newAfter = after[0].toUpperCase() + after.slice(1);
+  } else {
+    newAfter = after[0].toLowerCase() + after.slice(1);
+  }
+
+  return str.replace(before, newAfter);
 }
 
 module.exports = replace;
