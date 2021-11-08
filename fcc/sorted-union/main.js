@@ -15,7 +15,8 @@
  * @returns {[]} Uniqe value of each array from arguments.
  */
 function uniteUnique(...arr) {
-  return "not implemented";
+  // Merge all arguments into single array, then apply `Set()` to make it unique.
+  return [...new Set(arr.reduce((acc, curr) => acc.concat(curr)))];
 }
 
 module.exports = uniteUnique;
