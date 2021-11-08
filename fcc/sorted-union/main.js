@@ -15,7 +15,8 @@
  * @returns {[]} Uniqe value of each array from arguments.
  */
 function uniteUnique(...arr) {
-  // Merge all arguments into single array, then apply `Set()` to make it unique.
+  // Flatten an array of arrays from arguments into single array,
+  // then apply `Set()` to make it unique.
   return [...new Set(arr.reduce((acc, curr) => acc.concat(curr)))];
 }
 
