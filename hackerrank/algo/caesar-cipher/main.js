@@ -1,8 +1,19 @@
 function caesarCipher(originalText, rotateFactor) {
   const originalAlpha = "abcdefghijklmnopqrstuvwxyz";
-  const rotatedAlpha = originalAlpha
-    .slice(rotateFactor)
-    .padEnd(originalAlpha.length, originalAlpha);
+
+  function rotatingAlpha() {
+    let newRotateFactor = rotateFactor;
+
+    while (newRotateFactor > originalAlpha.length) {
+      newRotateFactor -= originalAlpha.length;
+    }
+
+    return originalAlpha
+      .slice(newRotateFactor)
+      .padEnd(originalAlpha.length, originalAlpha);
+  }
+
+  const rotatedAlpha = rotatingAlpha();
   let encrypted = "";
 
   for (let i = 0; i < originalText.length; i++) {
