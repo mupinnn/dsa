@@ -8,12 +8,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "new": "plop",
     "test": "jest",
     "test:watch": "jest --watch --onlyChanged"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "jest": "^27.5.1",
+    "plop": "^3.0.5",
     "ts-jest": "^27.1.3",
     "typescript": "^4.6.2"
   }
