@@ -1,0 +1,8 @@
+const {{camelCase name}} = require("./main");
+
+test.each([
+  // Example test case
+  [[1, 2, 3, 4, 10, 11], 31],
+])(`Sum of all %j elements should return %i`, (array, expected) => {
+  expect({{camelCase name}}(array)).toBe(expected);
+});
