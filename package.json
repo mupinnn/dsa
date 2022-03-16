@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "new": "plop",
     "test": "jest",
     "test:watch": "jest --watch --onlyChanged"
   },
