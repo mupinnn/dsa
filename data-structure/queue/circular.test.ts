@@ -11,4 +11,8 @@ describe("Circular Queue", () => {
     expect(q.length).toBe(5);
     expect(q.q).toEqual([null, null, null, null, null]);
   });
+
+  it("Should check if the queue is empty", () => {
+    expect(q.isEmpty()).toBe(true);
+  });
 });
