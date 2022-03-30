@@ -12,6 +12,15 @@ class CircularQueue<QueueType> {
   isEmpty() {
     return this.head < 0 && this.tail < 0;
   }
+
+  enqueue(el: QueueType) {
+    if (this.isEmpty()) {
+      this.head++;
+    }
+
+    this.tail++;
+    this.q[this.tail] = el;
+  }
 }
 
 export default CircularQueue;
