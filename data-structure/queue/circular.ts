@@ -1,6 +1,6 @@
 class CircularQueue<QueueType> {
   readonly length: number;
-  readonly q: Array<QueueType>;
+  readonly q: Array<QueueType | null>;
   private head: number = -1;
   private tail: number = -1;
 
@@ -36,6 +36,11 @@ class CircularQueue<QueueType> {
 
     this.tail++;
     this.q[this.tail] = el;
+  }
+
+  dequeue() {
+    this.q[this.head] = null;
+    this.head++;
   }
 }
 

@@ -62,4 +62,15 @@ describe("Circular Queue", () => {
 
     expect(q.getTail()).toBe(3);
   });
+
+  it("Should dequeue element from the front of the queue", () => {
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+
+    q.dequeue();
+
+    expect(q.getHead()).toBe(2);
+    expect(q.q).toEqual([null, 2, 3, null, null]);
+  });
 });
