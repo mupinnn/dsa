@@ -24,4 +24,26 @@ describe("Circular Queue", () => {
     expect(q.q[1]).toBe(2);
     expect(q.q).toEqual([1, 2, null, null, null]);
   });
+
+  it("Should refuse to enqueue if queue reached maximum size", () => {
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+    q.enqueue(5);
+    q.enqueue(6); // shouldn't be added
+
+    expect(q.enqueue(7)).toBe("Queue is full");
+    expect(q.q).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("Should check if the queue is full", () => {
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+    q.enqueue(5);
+
+    expect(q.isFull()).toBe(true);
+  });
 });
