@@ -17,6 +17,14 @@ class CircularQueue<QueueType> {
     return this.tail === this.length - 1;
   }
 
+  getHead() {
+    return this.q[this.head];
+  }
+
+  getTail() {
+    return this.q[this.tail];
+  }
+
   enqueue(el: QueueType) {
     if (this.isFull()) {
       return "Queue is full";

@@ -46,4 +46,20 @@ describe("Circular Queue", () => {
 
     expect(q.isFull()).toBe(true);
   });
+
+  it("Should get the frontmost element of the queue", () => {
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+
+    expect(q.getHead()).toBe(1);
+  });
+
+  it("Should get the rearmost element of the queue", () => {
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+
+    expect(q.getTail()).toBe(3);
+  });
 });
