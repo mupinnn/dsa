@@ -1,7 +1,7 @@
 import Stack from "./main";
 
 describe("Stack", () => {
-  let stack: Stack;
+  let stack: Stack<number | string>;
 
   beforeEach(() => {
     stack = new Stack(5);

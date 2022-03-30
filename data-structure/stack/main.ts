@@ -1,6 +1,6 @@
-class Stack {
+class Stack<StackType> {
   readonly size: number;
-  readonly stacks: Array<unknown> = [];
+  readonly stacks: Array<StackType> = [];
 
   constructor(size: number) {
     this.size = size;
@@ -18,7 +18,7 @@ class Stack {
     return this.stacks[this.stacks.length - 1];
   }
 
-  push(el: unknown) {
+  push(el: StackType) {
     if (this.stacks.length !== this.size) {
       this.stacks.push(el);
     }
