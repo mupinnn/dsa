@@ -73,4 +73,10 @@ describe("Circular Queue", () => {
     expect(q.getHead()).toBe(2);
     expect(q.q).toEqual([null, 2, 3, null, null]);
   });
+
+  it.todo("Should return 'Queue is empty' when dequeue an empty queue");
+
+  it.todo(
+    "Should fill the empty space in the front when the tail reach maximum length"
+  );
 });
