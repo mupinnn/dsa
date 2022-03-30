@@ -1,18 +1,21 @@
 import Stack from "./main";
 
 describe("Stack", () => {
+  let stack: Stack;
+
+  beforeEach(() => {
+    stack = new Stack(5);
+  });
+
   it("Should create empty stack with specified size (5)", () => {
-    const stack = new Stack(5);
     expect(stack.size).toBe(5);
   });
 
   it("Should check if the stack is empty", () => {
-    const stack = new Stack(5);
     expect(stack.isEmpty()).toBe(true);
   });
 
   it("Should return the topmost value when peeking w/o removing it", () => {
-    const stack = new Stack(5);
     stack.push(1);
 
     expect(stack.peek()).toBe(1);
@@ -20,7 +23,6 @@ describe("Stack", () => {
   });
 
   it("Should push new element to the top of the stack", () => {
-    const stack = new Stack(5);
     stack.push(1);
     stack.push("hai");
 
@@ -30,7 +32,6 @@ describe("Stack", () => {
   });
 
   it("Should refuse to push new element if stack reached maximum size", () => {
-    const stack = new Stack(5);
     stack.push(1);
     stack.push(2);
     stack.push(3);
@@ -44,14 +45,16 @@ describe("Stack", () => {
   });
 
   it("Should check if the stack is full", () => {
-    const stack = new Stack(1);
     stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
 
     expect(stack.isFull()).toBe(true);
   });
 
   it("Should remove element from the top of the stack", () => {
-    const stack = new Stack(5);
     stack.push(1);
     stack.push(2);
     stack.push(3);
@@ -64,7 +67,6 @@ describe("Stack", () => {
   });
 
   it("Should return 'Stack is empty' when popping empty stack", () => {
-    const stack = new Stack(1);
     stack.push(1);
 
     stack.pop(); // remove 1 from stack and stack will be empty
