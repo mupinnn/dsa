@@ -37,8 +37,8 @@ describe("Stack", () => {
     stack.push(3);
     stack.push(4);
     stack.push(5);
-    stack.push(6); // shouldn't added
 
+    expect(stack.push(6)).toBe("Stack is full"); // push nothing but return message
     expect(stack.stacks.length).toBe(5);
     expect(stack.stacks[0]).toBe(1);
     expect(stack.stacks[4]).toBe(5);

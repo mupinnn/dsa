@@ -19,9 +19,11 @@ class Stack<StackType> {
   }
 
   push(el: StackType) {
-    if (this.stacks.length !== this.size) {
-      this.stacks.push(el);
+    if (this.isFull()) {
+      return "Stack is full";
     }
+
+    return this.stacks.push(el);
   }
 
   pop() {
