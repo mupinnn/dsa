@@ -102,4 +102,47 @@ describe("Circular Queue", () => {
     expect(q.getTail()).toBe(7);
     expect(q.q).toEqual([6, 7, 3, 4, 5]);
   });
+
+  it("Should handle heavy/intensive circulation", () => {
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3); // [1, 2, 3, null, null]
+
+    q.dequeue();
+    q.dequeue(); // [null, null, 3, null, null]
+
+    q.enqueue(4);
+    q.enqueue(5); // [null, null, 3, 4, 5]
+
+    q.enqueue(6);
+    q.enqueue(7); // [6, 7, 3, 4, 5]
+
+    q.dequeue();
+    q.dequeue(); // [6, 7, null, null, 5]
+
+    q.enqueue(8); // [6, 7, 8, null, 5]
+
+    q.dequeue(); // [6, 7, 8, null, null]
+
+    q.enqueue(9);
+    q.enqueue(10); // [6, 7, 8, 9, 10]
+
+    q.dequeue();
+    q.dequeue(); // [null, null, 8, 9, 10]
+
+    q.enqueue(11);
+    q.enqueue(12); // [11, 12, 8, 9, 10]
+
+    q.dequeue();
+    q.dequeue();
+    q.dequeue(); // [11, 12, null, null, null];
+
+    q.enqueue(13);
+    q.enqueue(14);
+    q.enqueue(15); // [11, 12, 13, 14, 15]
+
+    expect(q.getHead()).toBe(11);
+    expect(q.getTail()).toBe(15);
+    expect(q.q).toEqual([11, 12, 13, 14, 15]);
+  });
 });

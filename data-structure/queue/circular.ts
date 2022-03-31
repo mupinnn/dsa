@@ -16,7 +16,7 @@ class CircularQueue<QueueType> {
   isFull() {
     return (
       (this.tail === this.length - 1 && this.head === 0) ||
-      this.tail == this.head - 1
+      this.tail === this.head - 1
     );
   }
 
@@ -31,18 +31,14 @@ class CircularQueue<QueueType> {
   enqueue(el: QueueType) {
     if (this.isFull()) {
       return "Queue is full";
+    } else if (this.isEmpty()) {
+      this.head = this.tail = 0;
+    } else if (this.tail === this.length - 1 && this.head !== 0) {
+      this.tail = 0;
     } else {
-      if (this.tail === this.length - 1 && this.head !== 0) {
-        this.tail = 0;
-        return (this.q[this.tail] = el);
-      }
+      this.tail++;
     }
 
-    if (this.isEmpty()) {
-      this.head++;
-    }
-
-    this.tail++;
     this.q[this.tail] = el;
   }
 
@@ -52,10 +48,13 @@ class CircularQueue<QueueType> {
     }
 
     this.q[this.head] = null;
-    this.head++;
 
-    if (this.head > this.tail) {
+    if (this.head === this.tail) {
       this.head = this.tail = -1;
+    } else if (this.head === this.length - 1) {
+      this.head = 0;
+    } else {
+      this.head++;
     }
   }
 }
