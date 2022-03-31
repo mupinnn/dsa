@@ -39,8 +39,16 @@ class CircularQueue<QueueType> {
   }
 
   dequeue() {
+    if (this.isEmpty()) {
+      return "Queue is empty";
+    }
+
     this.q[this.head] = null;
     this.head++;
+
+    if (this.head > this.tail) {
+      this.head = this.tail = -1;
+    }
   }
 }
 
