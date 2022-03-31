@@ -83,7 +83,23 @@ describe("Circular Queue", () => {
     expect(q.q).toEqual([null, null, null, null, null]);
   });
 
-  it.todo(
-    "Should fill the empty space in the front when the tail reach maximum length"
-  );
+  it("Should fill the empty space in the front when the tail reach maximum length", () => {
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3); // [1, 2, 3, null, null]
+
+    q.dequeue();
+    q.dequeue(); // [null, null, 3, null, null]
+
+    q.enqueue(4);
+    q.enqueue(5); // [null, null, 3, 4, 5]
+
+    q.enqueue(6);
+    q.enqueue(7); // [6, 7, 3, 4, 5]
+
+    expect(q.isFull()).toBe(true);
+    expect(q.getHead()).toBe(3);
+    expect(q.getTail()).toBe(7);
+    expect(q.q).toEqual([6, 7, 3, 4, 5]);
+  });
 });
