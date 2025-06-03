@@ -18,3 +18,10 @@ yarn-error.log
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Compiled
+a.out
+*.out
+
+# Cache
+.ccls-cache
