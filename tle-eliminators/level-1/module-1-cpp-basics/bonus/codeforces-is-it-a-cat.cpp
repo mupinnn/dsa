@@ -1,5 +1,4 @@
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 // TODO: still error.
@@ -10,43 +9,42 @@ int main() {
 
   cin >> t;
 
-  for (int i = 1; i <= t; i++) {
+  for (int i = 0; i < t; i++) {
     cin >> n >> s;
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
 
     char prev;
     bool meow = false;
 
-    for (int j = 0; j < s.size(); j++) {
+    for (int j = 0; j < n; j++) {
       meow = true;
+
+      if ((j == 0 && s[j] != 'm') || (j == n - 1 && s[j] != 'w') || n < 4 || s[j] == ' ' || (j > 0 && prev == 'w' && s[j] != 'w')) {
+        meow = false;
+        break;
+      }
 
       if (j == 0) {
         prev = s[j];
-        if (tolower(prev) != 'm') {
-          meow = false;
-          break;
-        }
         continue;
       }
 
-      if (tolower(prev) == 'm' &&
-          (tolower(s[j]) == 'e' || tolower(s[j]) == 'm')) {
+      if (prev == 'm' && (s[j] == 'm' || s[j] == 'e')) {
         prev = s[j];
         continue;
       }
 
-      if (tolower(prev) == 'e' &&
-          (tolower(s[j]) == 'o' || tolower(s[j]) == 'e')) {
+      if (prev == 'e' && (s[j] == 'e' || s[j] == 'o')) {
         prev = s[j];
         continue;
       }
 
-      if (tolower(prev) == 'o' &&
-          (tolower(s[j]) == 'w' || tolower(s[j]) == 'o')) {
+      if (prev == 'o' && (s[j] == 'o' || s[j] == 'w')) {
         prev = s[j];
         continue;
       }
 
-      if (tolower(prev) == 'w' && tolower(s[j]) == 'w') {
+      if (prev == 'w' && s[j] == 'w') {
         prev = s[j];
         continue;
       }
