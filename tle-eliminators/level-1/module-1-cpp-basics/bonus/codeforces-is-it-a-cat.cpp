@@ -19,7 +19,8 @@ int main() {
     for (int j = 0; j < n; j++) {
       meow = true;
 
-      if ((j == 0 && s[j] != 'm') || (j == n - 1 && s[j] != 'w') || n < 4 || s[j] == ' ' || (j > 0 && prev == 'w' && s[j] != 'w')) {
+      if ((j == 0 && s[j] != 'm') || (j == n - 1 && s[j] != 'w') || n < 4 ||
+          s[j] == ' ' || (j > 0 && prev == 'w' && s[j] != 'w')) {
         meow = false;
         break;
       }
